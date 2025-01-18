@@ -3,7 +3,7 @@
 	<div class="center">
 		
 		<div >
-			<div class="title">vue3+vuerouter+pinia2+elemenrplus</div>
+			<div class="title">vue3+vuerouter+pinia+elemenrplus</div>
 		<div>账号</div>
 		<template class='input'>
 		  <el-input v-model="input" placeholder="Please input" />
@@ -19,6 +19,7 @@
 
 <script setup>
 	import { computed } from "vue";
+	import api from "../api/api.ts";
 	import { watch} from "vue"
 	import { ref, reactive } from 'vue'
 	import { useRouter, useRoute } from 'vue-router'
@@ -46,14 +47,17 @@
 	
 const router = useRouter()
 const route = useRoute()
-	let gohome=function(){
-		router.push({
-		    path: '/home',
-		    query: {
-		      title: '666',
-			  token:1242434212
-		    }
-		  })
+	let gohome=async function(){
+		// await api.getHome({name:18});
+		console.log(input.value)
+		console.log(password.value)
+		// router.push({
+		//     path: '/home',
+		//     query: {
+		//       title: '666',
+		// 	  token:1242434212
+		//     }
+		//   })
 	}
 	
 

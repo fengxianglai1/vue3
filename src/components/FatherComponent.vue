@@ -18,7 +18,7 @@ import ChildComponent from './ChildComponent.vue';
 import { ref ,computed,nextTick} from 'vue';
 import {useUserStore} from "../store/user";
 import { ElLoading } from 'element-plus'
-
+import api from "../api/api.ts";
 export default {
   name: 'ParentComponent',
   components: {
@@ -33,7 +33,8 @@ export default {
 	  // },2000)
 	  const userStore = useUserStore()
 	  const name = computed(() => userStore.name)
-	  
+	   api.admin({name:18})
+	   
 	   // 具体使用
 	    // userStore.updateName('芳芳')
 	  // userStore.name = '芳芳'

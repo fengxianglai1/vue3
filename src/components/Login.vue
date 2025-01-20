@@ -49,15 +49,16 @@ const router = useRouter()
 const route = useRoute()
 	let gohome=async function(){
 		// await api.getHome({name:18});
+		
 		console.log(input.value)
 		console.log(password.value)
-		// router.push({
-		//     path: '/home',
-		//     query: {
-		//       title: '666',
-		// 	  token:1242434212
-		//     }
-		//   })
+		router.push({
+		    path: '/home',
+		    query: {
+		      title: '666',
+			  token:1242434212
+		    }
+		  })
 	}
 	
 

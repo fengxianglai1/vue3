@@ -1,10 +1,10 @@
 import http from './http';
 
 const api ={
-    getToken:function(params){
+    admin:function(params){
         
         console.log('params',params)
-        http.post('/api/geToken',params)
+        http.get('/api/portrait',params)
     },
     getHome:function(){
         console.log('我来了')

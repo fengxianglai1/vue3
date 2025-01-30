@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="{{a}}"></image><view class="text-area">12345 <text class="title">{{b}}{{c}}</text></view><button bindtap="{{d}}">tohome</button><button bindtap="{{e}}">getlocation</button><button bindtap="{{f}}">微信支付</button><view>我是微信小程序</view></view>

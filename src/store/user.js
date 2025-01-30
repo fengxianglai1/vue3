@@ -6,7 +6,7 @@ export const useUserStore = defineStore({
         return {
             name: '牛牛',
 			age:{
-				'agedemo':16
+				'agedemo':60
 			}
         }
     },

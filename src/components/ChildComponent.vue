@@ -35,6 +35,7 @@ const props = defineProps({
  const userStore = useUserStore()
 
  const name = userStore.name
+ // userStore.updateName="lisi"
  // const name = computed(() => userStore.updateName="lisi")
  
 const router = useRouter()
@@ -50,7 +51,7 @@ let toHome=function(){
 	    }
 	  })
 }
-let data = ref("emit") // 子组件中的数据
+let data = ref(userStore.age.agedemo) // 子组件中的数据
 const emit = defineEmits(['send-data']) // 接收props
 
 </script>

@@ -87,7 +87,7 @@ if (!Math) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.o((...args) => $options.showMessage && $options.showMessage(...args)),
-    b: common_vendor.sr("message", "5394b0c6-0"),
+    b: common_vendor.sr("message", "61de8769-0"),
     c: common_vendor.p({
       ["is-full"]: true
     }),

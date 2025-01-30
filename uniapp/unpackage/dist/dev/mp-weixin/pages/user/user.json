@@ -6,6 +6,6 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 100,
   "usingComponents": {
-    "uni-data-picker": "../../uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker"
+    "unicloud-city-select": "../../uni_modules/unicloud-city-select/components/unicloud-city-select/unicloud-city-select"
   }
 }

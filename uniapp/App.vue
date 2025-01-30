@@ -4,6 +4,7 @@
 			console.log('App Launch')
 		},
 		onShow: function() {
+			var vConsole = new window.VConsole();
 			console.log('App Show')
 		},
 		onHide: function() {

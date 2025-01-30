@@ -7,16 +7,18 @@ if (!Math) {
   "./pages/my/my.js";
   "./pages/home/home.js";
   "./pages/cs/index.js";
+  "./uni_modules/unicloud-city-select/pages/uni-city-list/uni-city-list.js";
 }
 const _sfc_main = {
   onLaunch: function() {
     common_vendor.index.__f__("log", "at App.vue:4", "App Launch");
   },
   onShow: function() {
-    common_vendor.index.__f__("log", "at App.vue:7", "App Show");
+    new window.VConsole();
+    common_vendor.index.__f__("log", "at App.vue:8", "App Show");
   },
   onHide: function() {
-    common_vendor.index.__f__("log", "at App.vue:10", "App Hide");
+    common_vendor.index.__f__("log", "at App.vue:11", "App Hide");
   }
 };
 function createApp() {

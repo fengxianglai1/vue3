@@ -1,92 +1,50 @@
 <template>
-	<view class="container">
-		<uni-card is-full :is-shadow="false">
-			<text class="uni-h6">标签组件多用于商品分类、重点内容显示等场景。</text>
-		</uni-card>
-		<uni-section title="本地数据" type="line" padding style="height: calc(100vh - 100px);">
-			<uni-data-picker placeholder="请选择班级" popup-title="请选择所在地区" :localdata="dataTree" v-model="classes"
-				@change="onchange" @nodeclick="onnodeclick" @popupopened="onpopupopened" @popupclosed="onpopupclosed">
-			</uni-data-picker>
-		</uni-section>
+	<view class="page">
+		<button type="primary" @click="open()">选择城市</button>
+		<view style="margin-top: 20px;">当前城市：{{ city.name }}</view>
+		<view style="margin-top: 20px;">城市代码：{{ city.code }}</view>
+		<unicloud-city-select ref="citySelect" :hot-city="hotCity" :location="true" @select="select"></unicloud-city-select>
 	</view>
 </template>
+
 <script>
 	export default {
 		data() {
 			return {
-				classes: '1-2',
-				dataTree: [{
-					text: "一年级",
-					value: "1-0",
-					children: [{
-						text: "1.1班",
-						value: "1-1"
-					},
-					{
-						text: "1.2班",
-						value: "1-2"
-					}]
+				// 当前选择的城市
+				city: {
+					code: "",
+					name: "定位中..."
 				},
-				{
-					text: "二年级",
-					value: "2-0",
-					children: [{
-						text: "2.1班",
-						value: "2-1"
-					},
-					{
-						text: "2.2班",
-						value: "2-2"
-					}]
-				},
-				{
-					text: "三年级",
-					value: "3-0",
-					disable: true
-				}]
+				// 热门城市
+				hotCity: [
+					{ code: "110100", name: "北京" },
+					{ code: "310100", name: "上海" },
+					{ code: "330100", name: "杭州" },
+					{ code: "440100", name: "广州" },
+					{ code: "440300", name: "深圳" },
+					{ code: "320100", name: "南京" },
+					{ code: "500100", name: "重庆" },
+					{ code: "510100", name: "成都" }
+				]
 			}
 		},
+		onLoad() {},
 		methods: {
-			onnodeclick(e) {
-				console.log(e);
+			// 点击城市选项
+			select(city) {
+				this.city = city;
 			},
-			onpopupopened(e) {
-				console.log('popupopened');
-			},
-			onpopupclosed(e) {
-				console.log('popupclosed');
-			},
-			onchange(e) {
-				console.log('onchange:', e);
+			// 打开城市选择页面
+			open() {
+				this.$refs.citySelect.open();
 			}
 		}
 	}
 </script>
-<style>
-	.title {
-		font-size: 14px;
-		font-weight: bold;
-		margin: 20px 0 5px 0;
-	}
 
-	.data-pickerview {
-		height: 400px;
-		border: 1px #e5e5e5 solid;
+<style lang="scss" scoped>
+	.page {
+		padding: 15px;
 	}
-
-	 .popper__arrow {
-    top: -6px;
-    left: 50%;
-    margin-right: 3px;
-    border-top-width: 0;
-    border-bottom-color: #EBEEF5;
-}
- .popper__arrow {
-    top: -6px;
-    left: 50%;
-    margin-right: 3px;
-    border-top-width: 0;
-    border-bottom-color: #EBEEF5;
-}
 </style>
-

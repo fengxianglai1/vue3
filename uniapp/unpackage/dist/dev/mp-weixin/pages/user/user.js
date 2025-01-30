@@ -3,93 +3,58 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
-      classes: "1-2",
-      dataTree: [
-        {
-          text: "一年级",
-          value: "1-0",
-          children: [
-            {
-              text: "1.1班",
-              value: "1-1"
-            },
-            {
-              text: "1.2班",
-              value: "1-2"
-            }
-          ]
-        },
-        {
-          text: "二年级",
-          value: "2-0",
-          children: [
-            {
-              text: "2.1班",
-              value: "2-1"
-            },
-            {
-              text: "2.2班",
-              value: "2-2"
-            }
-          ]
-        },
-        {
-          text: "三年级",
-          value: "3-0",
-          disable: true
-        }
+      // 当前选择的城市
+      city: {
+        code: "",
+        name: "定位中..."
+      },
+      // 热门城市
+      hotCity: [
+        { code: "110100", name: "北京" },
+        { code: "310100", name: "上海" },
+        { code: "330100", name: "杭州" },
+        { code: "440100", name: "广州" },
+        { code: "440300", name: "深圳" },
+        { code: "320100", name: "南京" },
+        { code: "500100", name: "重庆" },
+        { code: "510100", name: "成都" }
       ]
     };
   },
+  onLoad() {
+  },
   methods: {
-    onnodeclick(e) {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:51", e);
+    // 点击城市选项
+    select(city) {
+      this.city = city;
     },
-    onpopupopened(e) {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:54", "popupopened");
-    },
-    onpopupclosed(e) {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:57", "popupclosed");
-    },
-    onchange(e) {
-      common_vendor.index.__f__("log", "at pages/user/user.vue:60", "onchange:", e);
+    // 打开城市选择页面
+    open() {
+      this.$refs.citySelect.open();
     }
   }
 };
 if (!Array) {
-  const _component_uni_card = common_vendor.resolveComponent("uni-card");
-  const _easycom_uni_data_picker2 = common_vendor.resolveComponent("uni-data-picker");
-  const _component_uni_section = common_vendor.resolveComponent("uni-section");
-  (_component_uni_card + _easycom_uni_data_picker2 + _component_uni_section)();
+  const _easycom_unicloud_city_select2 = common_vendor.resolveComponent("unicloud-city-select");
+  _easycom_unicloud_city_select2();
 }
-const _easycom_uni_data_picker = () => "../../uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker.js";
+const _easycom_unicloud_city_select = () => "../../uni_modules/unicloud-city-select/components/unicloud-city-select/unicloud-city-select.js";
 if (!Math) {
-  _easycom_uni_data_picker();
+  _easycom_unicloud_city_select();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.p({
-      ["is-full"]: true,
-      ["is-shadow"]: false
-    }),
-    b: common_vendor.o($options.onchange),
-    c: common_vendor.o($options.onnodeclick),
-    d: common_vendor.o($options.onpopupopened),
-    e: common_vendor.o($options.onpopupclosed),
-    f: common_vendor.o(($event) => $data.classes = $event),
-    g: common_vendor.p({
-      placeholder: "请选择班级",
-      ["popup-title"]: "请选择所在地区",
-      localdata: $data.dataTree,
-      modelValue: $data.classes
-    }),
-    h: common_vendor.p({
-      title: "本地数据",
-      type: "line",
-      padding: true
+    a: common_vendor.o(($event) => $options.open()),
+    b: common_vendor.t($data.city.name),
+    c: common_vendor.t($data.city.code),
+    d: common_vendor.sr("citySelect", "0f7520f0-0"),
+    e: common_vendor.o($options.select),
+    f: common_vendor.p({
+      ["hot-city"]: $data.hotCity,
+      location: true
     })
   };
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-0f7520f0"]]);
 wx.createPage(MiniProgramPage);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/user/user.js.map

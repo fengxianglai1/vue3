@@ -5449,41 +5449,12 @@ function vFor(source, renderItem) {
   }
   return ret;
 }
-function renderSlot(name, props = {}, key) {
-  const instance = getCurrentInstance();
-  const { parent, isMounted, ctx: { $scope } } = instance;
-  const vueIds = ($scope.properties || $scope.props).uI;
-  if (!vueIds) {
-    return;
-  }
-  if (!parent && !isMounted) {
-    onMounted(() => {
-      renderSlot(name, props, key);
-    }, instance);
-    return;
-  }
-  const invoker = findScopedSlotInvoker(vueIds, instance);
-  if (invoker) {
-    invoker(name, props, key);
-  }
-}
-function findScopedSlotInvoker(vueId, instance) {
-  let parent = instance.parent;
-  while (parent) {
-    const invokers = parent.$ssi;
-    if (invokers && invokers[vueId]) {
-      return invokers[vueId];
-    }
-    parent = parent.parent;
-  }
-}
 function setRef(ref2, id, opts = {}) {
   const { $templateRefs } = getCurrentInstance();
   $templateRefs.push({ i: id, r: ref2, k: opts.k, f: opts.f });
 }
 const o$1 = (value, key) => vOn(value, key);
 const f$1 = (source, renderItem) => vFor(source, renderItem);
-const r$1 = (name, props, key) => renderSlot(name, props, key);
 const s$1 = (value) => stringifyStyle(value);
 const e$1 = (target, ...sources) => extend(target, ...sources);
 const n$1 = (value) => normalizeClass(value);
@@ -7187,7 +7158,7 @@ function initOnError() {
 function initRuntimeSocketService() {
   const hosts = "192.168.2.5,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_aipdx3";
+  const id = "mp-weixin_0fiBDo";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -8166,6 +8137,13 @@ const pages = [
       backgroundColor: "#FFFFFF",
       enablePullDownRefresh: true
     }
+  },
+  {
+    path: "uni_modules/unicloud-city-select/pages/uni-city-list/uni-city-list",
+    style: {
+      enablePullDownRefresh: false,
+      navigationBarTitleText: "城市选择"
+    }
   }
 ];
 const tabBar = {
@@ -8175,20 +8153,20 @@ const tabBar = {
   list: [
     {
       pagePath: "pages/index/index",
-      iconPath: "",
-      selectedIconPath: "",
+      iconPath: "/static/logo.png",
+      selectedIconPath: "/static/logo.png",
       text: "首页"
     },
     {
       pagePath: "pages/user/user",
       iconPath: "",
-      selectedIconPath: "",
+      selectedIconPath: "/static/logo.png",
       text: "用户"
     },
     {
       pagePath: "pages/my/my",
       iconPath: "",
-      selectedIconPath: "",
+      selectedIconPath: "/static/logo.png",
       text: "我的"
     }
   ]
@@ -8544,7 +8522,7 @@ class S {
 function T(e2) {
   return e2 && "string" == typeof e2 ? JSON.parse(e2) : e2;
 }
-const b = true, E = "mp-weixin", P = T(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), C = E, A = T(""), O = T("[]") || [];
+const b = true, E = "mp-weixin", P = T(define_process_env_UNI_SECURE_NETWORK_CONFIG_default), C = E, A = T('{"address":["127.0.0.1","192.168.2.5"],"servePort":7000,"debugPort":9000,"initialLaunchType":"local","skipFiles":["<node_internals>/**","C:/Users/Administrator/Downloads/plugins/unicloud/**/*.js"]}'), O = T('[{"provider":"aliyun","spaceName":"demo1","spaceId":"mp-2911055c-da7e-465a-97ea-79f706304729","clientSecret":"FCcrSpjA+lUsqoWL+imEKQ==","endpoint":"https://api.next.bspapp.com"}]') || [];
 let N = "";
 try {
   N = "__UNI__FBE248B";
@@ -11069,7 +11047,6 @@ exports.initVueI18n = initVueI18n;
 exports.n = n$1;
 exports.o = o$1;
 exports.p = p$1;
-exports.r = r$1;
 exports.resolveComponent = resolveComponent;
 exports.s = s$1;
 exports.sr = sr;

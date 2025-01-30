@@ -44,7 +44,14 @@
                 "enablePullDownRefresh": true
             }
         }
-	],
+	,{
+    "path": "uni_modules/unicloud-city-select/pages/uni-city-list/uni-city-list",
+    "style": {
+        "enablePullDownRefresh": false,
+        "navigationBarTitleText": "城市选择"
+    }
+}
+],
 	
 "tabBar":{
 	          "color":"#666",
@@ -53,7 +60,7 @@
 	          "list":[
 	              {
 	                  "pagePath":"pages/index/index",
-	                  "iconPath":"",
+	                  "iconPath":"/static/logo.png",
 	                  "selectedIconPath":"/static/logo.png",
 	                  "text":"首页"
 	              },
